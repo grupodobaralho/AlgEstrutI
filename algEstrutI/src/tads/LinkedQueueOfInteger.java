@@ -44,7 +44,7 @@ public class LinkedQueueOfInteger {
 	
 	public int head() {
 		if(count == 0) 
-			throw new IndexOutOfBoundsException("Cannot dequeue, queue is empty.");
+			throw new IndexOutOfBoundsException("Cannot show head, queue is empty.");
 		
 		return head.element;
 	}
