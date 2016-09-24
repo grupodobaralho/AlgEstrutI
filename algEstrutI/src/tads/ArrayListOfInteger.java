@@ -122,11 +122,11 @@ public class ArrayListOfInteger {
 	/* int contaOcorrencias(int element)
 	 * conta o número de ocorrências do elemento passado como parâmetro na lista, retornando este valor */
 	public int contaOcorrências(int element){
-		int count = 0;
+		int ocorrencias = 0;
 		for(int i : data){
-			if(data[i]==element) count++;
+			if(data[i]==element) ocorrencias++;
 		}
-		return count;
+		return ocorrencias;
 	}
 	
 }
