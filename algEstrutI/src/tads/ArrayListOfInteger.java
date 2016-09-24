@@ -23,9 +23,10 @@ public class ArrayListOfInteger {
 		if(count==data.length)
 			aumentaData();
 		data[count] = element;
+		count++; //incrementa o contador
 	}
 	
-	//Adiocona elemento no index informado
+	//Adiciona elemento no index informado
 	public void add(int index, Integer element){
 		if(index<0 || index>count)
 			throw new IndexOutOfBoundsException("Invalid Index");
@@ -39,14 +40,14 @@ public class ArrayListOfInteger {
 	
 	//Retorna o valor na posição do index informado
 	public Integer get(int index){
-		if(index<0 || index>count)
-			throw new IndexOutOfBoundsException("Invalid Index");
+		if(index<0 || index>=count) // adicionei igualdade na segunda parte. O vetor só está prenchido até o index count-1
+			throw new IndexOutOfBoundsException("Invalid Index");		
 		return data[index];
 	}
 	
 	//Troca o valor da posição index por outro e retorna o valor antigo
 	public Integer set(int index, Integer element){
-		if(index<0 || index>count)
+		if(index<0 || index>=count) //idem anterior
 			throw new IndexOutOfBoundsException("Invalid Index");
 		Integer aux = data[index];
 		data[index] = element;
