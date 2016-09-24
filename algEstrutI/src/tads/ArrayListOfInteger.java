@@ -98,5 +98,42 @@ public class ArrayListOfInteger {
 		count=0;
 	}
 	
+	/* int[] subList(int fromIndex, int toIndex), que retorna um arranjo com os elementos da lista original 
+	 * entre fromIndex (inclusivo) e toIndex (exclusivo).
+	 */
+	public Integer[] subList(int fromIndex, int toIndex){
+		if(fromIndex<0 || toIndex>=count) throw new IndexOutOfBoundsException("Invalid Index");
+		Integer []aux = new Integer[toIndex-fromIndex+1];
+		for(int i = fromIndex, j=0; i<=toIndex;i++, j++){
+			aux[j]=data[i];
+		}
+		return aux;
+	}
+	
+	/*void reverse(), que inverte o conteúdo da lista.*/
+	public void reverse(){
+		Integer aux[]= new Integer[size()];
+		for(int i=0, j=count-1; i<count; i++, j--){
+			aux[i] = data[j];
+		}
+			data = aux;
+	}
+		
+	/* int contaOcorrencias(int element)
+	 * conta o número de ocorrências do elemento passado como parâmetro na lista, retornando este valor */
+	public int contaOcorrências(int element){
+		int count = 0;
+		for(int i : data){
+			if(data[i]==element) count++;
+		}
+		return count;
+	}
 	
 }
+	
+		
+		
+	
+	
+	
+
