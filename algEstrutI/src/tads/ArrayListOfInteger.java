@@ -67,6 +67,18 @@ public class ArrayListOfInteger {
 		return false;
 	}
 	
+	//Remove um elemento do vetor pelo índice e retorna o elemento que estava lá
+	public Integer removeByIndex(int index){
+		if(index<0 || index>count)
+			throw new IndexOutOfBoundsException("Invalid Index");	
+		Integer aux = data[index];
+		for(int i=index; i<count-1; i++){
+			data[i] = data[i+1];
+		}
+		count--;
+		return aux;			
+	}
+	
 	//Retorna o número de elementos armazenados na lista
 	public int size(){
 		return count;
