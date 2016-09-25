@@ -5,7 +5,6 @@ public class LinkedListOfInteger {
 	private Node tail;
 	private int count;
 	
-	
 	private class Node {
 		public Integer element;
 		public Node next;
@@ -205,4 +204,3 @@ public class LinkedListOfInteger {
 	}
 
 }
-

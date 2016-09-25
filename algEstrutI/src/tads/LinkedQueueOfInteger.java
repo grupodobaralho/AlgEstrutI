@@ -1,19 +1,19 @@
 package tads;
 
 public class LinkedQueueOfInteger {
-	class Node {
-		public int element;
+	private Node head;
+	private Node tail;
+	private int count;
+	
+	private class Node {
+		public Integer element;
 		public Node next;
 		
-		public Node(int e) {
+		public Node(Integer e) {
 			element = e;
 			next = null;
 		}
 	}
-	
-	private Node head;
-	private Node tail;
-	private int count;
 	
 	public LinkedQueueOfInteger() {
 		head = null;
@@ -21,7 +21,7 @@ public class LinkedQueueOfInteger {
 		count = 0;
 	}
 	
-	public void enqueue(int e){
+	public void enqueue(Integer e){
 		Node n = new Node(e);
 		if(count == 0) {
 			head = n;
@@ -35,8 +35,7 @@ public class LinkedQueueOfInteger {
 	public int dequeue() {
 		if(count == 0) 
 			throw new IndexOutOfBoundsException("Cannot dequeue, queue is empty.");
-		
-		int aux = head.element;
+		Integer aux = head.element;
 		head = head.next;
 		count--;
 		return aux;
@@ -45,7 +44,6 @@ public class LinkedQueueOfInteger {
 	public int head() {
 		if(count == 0) 
 			throw new IndexOutOfBoundsException("Cannot show head, queue is empty.");
-		
 		return head.element;
 	}
 	
