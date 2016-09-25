@@ -27,6 +27,13 @@ public class App_ex09 {
 		System.out.println("isEmpty: " + p.isEmpty());
 		//Mostra a exceção definida na classe LinkedQueueOfInteger
 		//System.out.println("top: " + p.top());
+		
+		p.push(88);
+		p.push(22);
+		System.out.println("\n\nNova Pilha:\n" + p);
+		System.out.println("size: " + p.size());
+		System.out.println("isEmpty: " + p.isEmpty());
+		System.out.println("top: " + p.top());
 	}
 
 }

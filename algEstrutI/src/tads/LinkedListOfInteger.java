@@ -1,5 +1,7 @@
 package tads;
 
+import tads.LinkedQueueOfInteger.Node;
+
 public class LinkedListOfInteger {
 	private Node head;
 	private Node tail;
@@ -14,7 +16,11 @@ public class LinkedListOfInteger {
 			this.element = element;
 			next = null;			
 		}
-	}	
+	}
+	
+	public LinkedListOfInteger() {
+		count = 0;
+	}
 	
 	public LinkedListOfInteger(Integer element){
 		this.head = new Node(element);
@@ -32,51 +38,26 @@ public class LinkedListOfInteger {
 	}
 	
 	public void addByIndex(Integer element, int index){
-		if(index>=count) throw new IndexOutOfBoundsException("Index inválido");
+		if(index<0 || index>count) throw new IndexOutOfBoundsException("Index inválido");
 		Node n = new Node(element);
-		Node aux = head;
-		if(index==0){
-			n.next=head;
-			head=n;
+		if (count==0) add(element);
+		else{
+			if(index==0){
+				n.next=head;
+				head=n;
+			}
+			else {
+				Node aux = head;
+				for(int i=1; i<index; i++){
+					aux = aux.next;
+				}		
+				n.next=aux.next;
+				aux.next=n;
+			}
 			count++;
-			return;
-		}		
-		for(int i=1;i<index;i++){
-			aux = aux.next;
-		}		
-		n.next=aux.next;
-		aux.next=n;
-		count++;
+		}
 	}
-
-		
-	//Adiciona elemento no index informado
-	public void add(int index, Integer element){
-		Node ele = new Node(element);		
-		if(index<0 || index>=count)
-			throw new IndexOutOfBoundsException("Invalid Index");	
-		Node aux = head;
-		Node n = head.next;
-		if(index == 0){
-			head = ele;
-			ele.next = aux;
-			if(count==1) 
-				tail=null;
-				count++;
-			return;
-		}
-		for(int i=1; i<index; i++){
-			aux = aux.next;
-			n = n.next;
-		}
-		aux.next = ele;
-		if(n==tail){
-			tail = ele;
-		}
-		else ele.next = n;
-		count++;
-	}
-		
+	
 	//Retorna o valor na posição do index informado
 	public Integer get(int index){
 		if(index<0 || index >=count)
@@ -116,7 +97,7 @@ public class LinkedListOfInteger {
 		n.element=element;
 		return aux;	
 					
-		}
+	}
 	
 	//Remove um elemento do vetor e reposiciona os demais retornando true se o valor foi encontrado
 	public boolean remove(Integer element){
@@ -206,12 +187,24 @@ public class LinkedListOfInteger {
 	public void clear(){
 		count = 0;
 		head = null;
-		tail = null;  
+		tail = null;
 	}
 		
 	public boolean isEmpty(){
-		if(count==0)return true;
-		else return false;
+		return count==0;
 	}
+
+	//toString
+	@Override
+	public String toString() {
+		String aux = "";
+		Node n = head;
+		for(int i=0; i<count; i++) {
+			aux += (n.element + "\n");
+			n = n.next;
+		}
+		return aux;
+	}
+
 }
 
