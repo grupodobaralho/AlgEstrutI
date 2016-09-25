@@ -39,14 +39,5 @@ public class LinkedStackOfInteger {
 			aux.next = tail;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }
