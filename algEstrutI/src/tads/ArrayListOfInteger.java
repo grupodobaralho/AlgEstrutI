@@ -3,10 +3,16 @@ package tads;
 public class ArrayListOfInteger {
 	
 	private Integer[] data;
-	private int count = 0;
+	private int count;
+	
+	public ArrayListOfInteger(){
+		data = new Integer[10];
+		count =0;
+	}
 	
 	public ArrayListOfInteger(int size){
 		data = new Integer[size];
+		count =0;
 	}
 	
 	//duplica o tamanho do Vetor
