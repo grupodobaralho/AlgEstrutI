@@ -90,17 +90,55 @@ public class LinkedListOfInteger {
 	
 	//Troca o valor da posição index por outro e retorna o valor antigo
 	public Integer set(int index, Integer element){
-		return 0;	
+		if(index<0 || index>=count) throw new IndexOutOfBoundsException("Index inválido");
+		Node aux = head;
+		for(int i=0;i<index;i++){
+			aux = aux.next;
+		}
+		Integer n = aux.element;
+		aux.element=element;
+		return n;	
 	}
 	
 	//Remove um elemento do vetor e reposiciona os demais retornando true se o valor foi encontrado
 	public boolean remove(Integer element){
+		if(head.element==element){
+			head = head.next;
+			count--;
+			return true;
+		}		
+		Node aux1 = head;
+		Node aux2 = head.next;
+		for(int i=1;i<count;i++){
+			if(aux2.element==element){
+				aux1.next=aux2.next;
+				count--;
+				return true;
+			}
+			aux1 = aux1.next;
+			aux2 = aux2.next;
+		}		
 		return false;
 	}
 	
 	//Remove um elemento do vetor pelo índice e retorna o elemento que estava lá
 	public Integer removeByIndex(int index){
-		return 0;
+		if(index<0 || index <=count) throw new IndexOutOfBoundsException("Index inálido");
+		Integer numero;
+		if(index==0){
+			numero=head.element;
+			head=head.next;
+			return numero;
+		}
+		Node aux1 = head;
+		Node aux2 = head.next;
+		for(int i=1; i<index;i++){			
+			aux1=aux1.next;
+			aux2=aux2.next;
+		}
+		numero = aux2.element;
+		aux1.next=aux2.next;
+		return numero;
 	}
 	
 	//Retorna o número de elementos armazenados na lista
@@ -109,13 +147,24 @@ public class LinkedListOfInteger {
 	}
 	
 	//Retorna true se a lista contém o elemento
-	public boolean contains(Integer e){
+	public boolean contains(Integer element){
+		if(head.element==element) return true;
+		if(tail.element==element) return true;
+		Node aux=head.next;
+		for(int i=0;i<count;i++){
+			if(aux.element==element) return true;
+			aux=aux.next;
+		}
 		return false;
 	}
 	
 	//indexOf(e): retorna a posição onde o elemento está na lista
 	public int indexOf(Integer e){
-		return 0;
+		int pos = 0;
+		Node aux=head;
+		for(;pos<count && aux.element!=pos;pos++)
+			aux=aux.next;
+		return pos;
 	}
 	
 	//remove todos os elementos da lista
