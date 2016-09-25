@@ -5,7 +5,7 @@ public class App {
 	public static void main(String[] args) {
 		
 		int prints=0;
-		LinkedListOfInteger listaEncadeada = new LinkedListOfInteger(99);
+		LinkedListOfInteger listaEncadeada = new LinkedListOfInteger();
 		
 		listaEncadeada.add(6);
 		listaEncadeada.add(17);
@@ -13,10 +13,9 @@ public class App {
 		listaEncadeada.add(8);
 		
 		System.out.println(listaEncadeada);
-		System.out.println("Fim da impressão" + prints);
+		System.out.println("Fim da impressão" + prints + "\n\n");
 		prints++;
 	
-		listaEncadeada.addByIndex(27,3);
 		/*
 		System.out.println(listaEncadeada);
 		System.out.println("Fim da impressão");
@@ -24,13 +23,13 @@ public class App {
 		listaEncadeada.add(4,18);
 		*/
 		
-		
+		listaEncadeada.addByIndex(27,0);
 		listaEncadeada.remove(6);
 		listaEncadeada.remove(99);
 		listaEncadeada.remove(8);
 		
 		System.out.println(listaEncadeada);
-		System.out.println("Fim da impressão" + prints);
+		System.out.println("Fim da impressão" + prints + "\n\n");
 		prints++;
 		
 		
@@ -39,7 +38,7 @@ public class App {
 		listaEncadeada.addByIndex(88,0);
 		
 		System.out.println(listaEncadeada);
-		System.out.println("Fim da impressão" + prints);
+		System.out.println("Fim da impressão" + prints + "\n\n");
 		prints++;		
 	}
 }
