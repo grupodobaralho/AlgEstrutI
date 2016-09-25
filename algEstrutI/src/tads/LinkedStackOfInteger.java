@@ -6,7 +6,7 @@ public class LinkedStackOfInteger {
 	private Node tail;
 	private int count;	
 	
-	class Node{
+	private class Node{
 		Integer element;
 		Node next;
 		public Node(Integer element){
@@ -77,7 +77,7 @@ public class LinkedStackOfInteger {
 	
 	public Integer top(){
 		if(count==0)
-			throw new IndexOutOfBoundsException("Cannot pop, stack is empty.");
+			throw new IndexOutOfBoundsException("There's no top, for stack is empty.");
 		return tail.element;
 	}
 	
