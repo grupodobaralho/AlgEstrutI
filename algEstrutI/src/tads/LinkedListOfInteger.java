@@ -1,24 +1,25 @@
 package tads;
 
 public class LinkedListOfInteger {
+	private Node head;
+	private Node tail;
+	private int count;
 	
-	class Node {
+	
+	private class Node {
 		public Integer element;
 		public Node next;
 		
 		public Node(Integer element){
 			this.element = element;
-			next = null;
+			next = null;			
 		}
 	}	
-	private Node head;
-	private Node tail;
-	private int count;
 	
-	public LinkedListOfInteger(){
-		head = null;
-		tail = null;
-		count = 0;
+	public LinkedListOfInteger(Integer element){
+		this.head = new Node(element);
+		this.tail = this.head;
+		count++;
 	}
 	
 	//Adiciona elemento no final
@@ -27,8 +28,27 @@ public class LinkedListOfInteger {
 		if(count==0)head = n;
 		else tail.next = n;
 		tail = n;
+		count++;		
+	}
+	
+	public void addByIndex(Integer element, int index){
+		if(index>=count) throw new IndexOutOfBoundsException("Index inválido");
+		Node n = new Node(element);
+		Node aux = head;
+		if(index==0){
+			n.next=head;
+			head=n;
+			count++;
+			return;
+		}		
+		for(int i=1;i<index;i++){
+			aux = aux.next;
+		}		
+		n.next=aux.next;
+		aux.next=n;
 		count++;
-	}	
+	}
+
 		
 	//Adiciona elemento no index informado
 	public void add(int index, Integer element){
@@ -40,7 +60,7 @@ public class LinkedListOfInteger {
 		if(index == 0){
 			head = ele;
 			ele.next = aux;
-			if(count==1)
+			if(count==1) 
 				tail=null;
 				count++;
 			return;
@@ -61,10 +81,10 @@ public class LinkedListOfInteger {
 	public Integer get(int index){
 		if(index<0 || index >=count)
 			throw new IndexOutOfBoundsException("Invalid Index");			
-		Node aux = head;
 		if(index==count-1)
 			return tail.element;
-		for(int i=0; i<index; i++){
+		Node aux = head;
+		for(int i=0; i<index; i++){		
 			aux = aux.next;
 		}
 		return aux.element;
@@ -182,10 +202,10 @@ public class LinkedListOfInteger {
 		head = null;
 		tail = null;
 	}
-	
-	
+		
 	public boolean isEmpty(){
 		if(count==0)return true;
 		else return false;
 	}
 }
+
