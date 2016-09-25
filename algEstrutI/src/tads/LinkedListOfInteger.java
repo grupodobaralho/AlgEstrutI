@@ -60,23 +60,93 @@ public class LinkedListOfInteger {
 	//Retorna o valor na posição do index informado
 	public Integer get(int index){
 		if(index<0 || index >=count)
-			throw new IndexOutOfBoundsException("Invalid Index");	
-		return 0;
+			throw new IndexOutOfBoundsException("Invalid Index");			
+		Node aux = head;
+		if(index==count-1)
+			return tail.element;
+		for(int i=0; i<index; i++){
+			aux = aux.next;
+		}
+		return aux.element;
 	}
 	
 	//Troca o valor da posição index por outro e retorna o valor antigo
 	public Integer set(int index, Integer element){
-		return 0;	
+		if(index<0 || index>=count)
+			throw new IndexOutOfBoundsException("Invalid Index");
+		Integer aux;
+		if(index==0){
+			aux = head.element;
+			head.element=element;	
+			return aux;
+		}
+		if(index==count-1){
+			aux = tail.element;
+			tail.element=element;	
+			return aux;			
+		}
+			
+		Node n = head;
+		for(int i=1; i<index; i++){
+			n = n.next;			
+		}	
+		aux = n.element;
+		n.element = element;
+		return aux;
+		
 	}
 	
 	//Remove um elemento do vetor e reposiciona os demais retornando true se o valor foi encontrado
 	public boolean remove(Integer element){
-		return false;
+		if(count==0) return false;
+		if(head.element==element){
+			head = head.next;
+			if(count==1)
+				tail=null;
+			count--;
+			return true;
+		}
+		Node ant = head;
+		Node n = head.next;
+		for(int i=1; i<count; i++){
+			if(n.element==element){
+				ant.next=n.next;
+				count--;
+				if(n==tail)
+					tail=ant;
+				return true;
+			}
+			else{
+				ant = ant.next;
+				n = n.next;
+			}
+		}
+		return false;		
 	}
 	
 	//Remove um elemento do vetor pelo índice e retorna o elemento que estava lá
 	public Integer removeByIndex(int index){
-		return 0;
+		if(index<0 || index>=count)
+			throw new IndexOutOfBoundsException("Invalid Index");		
+		if(index==0){
+			Integer aux = head.element;
+			head = head.next;
+			if(count==1)
+				tail=null;	
+			count--;			
+			return aux;
+		}
+		Node ant = head;
+		Node n = head.next;
+		for(int i=1; i<index; i++){			
+			ant = ant.next;
+			n = n.next;					
+		}
+		ant.next = n.next;
+		if(n==tail)
+			tail=ant;
+		count--;
+		return n.element;			
 	}
 	
 	//Retorna o número de elementos armazenados na lista
@@ -85,16 +155,37 @@ public class LinkedListOfInteger {
 	}
 	
 	//Retorna true se a lista contém o elemento
-	public boolean contains(Integer e){
-		return false;
+	public boolean contains(Integer e){		
+		Node n = head;
+		for(int i=0; i<count; i++){
+			if(n.element==e)				
+				return true;
+			n = n.next;
+		}
+		return false;	
 	}
 	
-	//indexOf(e): retorna a posição onde o elemento está na lista
-	public int indexOf(Integer e){
-		return 0;
+	//retorna a posição onde o elemento está na lista
+	public int indexOf(Integer e){		
+		Node n = head;
+		for(int i=0; i<count; i++){			
+			if(n.element==e)
+				return i;
+			n = n.next;
+		}
+		return -1;
 	}
 	
 	//remove todos os elementos da lista
-	public void clear(){		
+	public void clear(){
+		count = 0;
+		head = null;
+		tail = null;
+	}
+	
+	
+	public boolean isEmpty(){
+		if(count==0)return true;
+		else return false;
 	}
 }
