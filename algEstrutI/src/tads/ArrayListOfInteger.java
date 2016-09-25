@@ -28,7 +28,7 @@ public class ArrayListOfInteger {
 	
 	//Adiciona elemento no index informado
 	public void add(int index, Integer element){
-		if(index<0 || index>count)
+		if(index<0 || index>=count)
 			throw new IndexOutOfBoundsException("Invalid Index");
 		if(count==data.length)
 			aumentaData();
