@@ -1,7 +1,5 @@
 package tads;
 
-import tads.LinkedQueueOfInteger.Node;
-
 public class LinkedListOfInteger {
 	private Node head;
 	private Node tail;
