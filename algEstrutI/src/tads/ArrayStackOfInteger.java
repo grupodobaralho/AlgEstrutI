@@ -24,20 +24,27 @@ public class ArrayStackOfInteger {
 	//retorna, mas não remove, o elemento do topo da pilha, e dá erro se a pilha estiver vazia
 	public Integer top(){
 		if(lista.size()<=0) throw new IndexOutOfBoundsException("Pilha vazia");
-		
-		return count;
-		
+		return lista.get(lista.size()-1);		
 	}
 	
-	/*
 	//retorna o número de elementos da pilha
-	size():
+	public int size(){
+		return lista.size();
+	}
 		
-	//retorna true se a pilha estiver vazia, e false caso contrário
-		
-	isEmpty():
+	//retorna true se a pilha estiver vazia, e false caso contrário		
+	public boolean isEmpty(){
+		return lista.isEmpty();
+	}
 		
 	//esvazia a pilha
-	clear(): 
-	*/
+	public void clear(){
+		lista.clear();
+	}
+	
+	@Override
+	public String toString(){
+		return lista.toString();
+		
+	}
 }

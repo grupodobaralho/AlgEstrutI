@@ -150,6 +150,14 @@ public class ArrayListOfInteger {
 		if(count==0)return true;
 		else return false;
 	}
+	@Override
+	public String toString(){
+		String aux="";
+		for(int i : data){
+			aux = aux + data[i] + "\n";
+		}
+		return aux;
+	}
 	
 }
 	
