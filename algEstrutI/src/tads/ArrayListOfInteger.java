@@ -19,7 +19,7 @@ public class ArrayListOfInteger {
 	private void aumentaData(){
 		Integer[] nData = new Integer[data.length*2];
 		for(int i=0; i<data.length; i++){
-			nData[i] = data[i];			
+			nData[i] = data[i];		
 		}
 		this.data = nData;		
 	}
