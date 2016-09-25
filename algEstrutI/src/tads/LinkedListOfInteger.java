@@ -190,6 +190,18 @@ public class LinkedListOfInteger {
 	public boolean isEmpty(){
 		return count==0;
 	}
+	
+	public int[] toArray(){
+		if(count==0)
+			throw new IndexOutOfBoundsException("The list is empty");
+		int[] array = new int[count];
+		Node aux = head;
+		for(int i=0; i<count; i++){
+			array[i] = aux.element;
+			aux = aux.next;
+		}
+		return array;
+	}
 
 	//toString
 	@Override
