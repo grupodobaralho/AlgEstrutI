@@ -32,8 +32,7 @@ public class LinkedListOfInteger {
 		
 	//Adiciona elemento no index informado
 	public void add(int index, Integer element){
-		Node ele = new Node(element);
-		
+		Node ele = new Node(element);		
 		if(index<0 || index>=count)
 			throw new IndexOutOfBoundsException("Invalid Index");	
 		Node aux = head;
@@ -43,7 +42,7 @@ public class LinkedListOfInteger {
 			ele.next = aux;
 			if(count==1)
 				tail=null;
-				count--;
+				count++;
 			return;
 		}
 		for(int i=1; i<index; i++){
@@ -60,6 +59,8 @@ public class LinkedListOfInteger {
 		
 	//Retorna o valor na posição do index informado
 	public Integer get(int index){
+		if(index<0 || index >=count)
+			throw new IndexOutOfBoundsException("Invalid Index");	
 		return 0;
 	}
 	
