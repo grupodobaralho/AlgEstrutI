@@ -75,7 +75,7 @@ public class ArrayListOfInteger {
 	}
 	
 	//Remove um elemento do vetor pelo índice e retorna o elemento que estava lá
-	public Integer removeByIndex(int index, Integer element){
+	public Integer removeByIndex(int index){
 		Integer aux = data[index];
 		for(int i=index; i<count-1; i++){
 			data[i]= data[i+1];
