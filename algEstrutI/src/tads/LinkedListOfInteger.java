@@ -1,7 +1,5 @@
 package tads;
 
-import tads.LinkedQueueOfInteger.Node;
-
 public class LinkedListOfInteger {
 	private Node head;
 	private Node tail;
@@ -37,7 +35,7 @@ public class LinkedListOfInteger {
 		count++;		
 	}
 	
-	public void addByIndex(Integer element, int index){
+	public void addByIndex(int index, Integer element){
 		if(index<0 || index>count) throw new IndexOutOfBoundsException("Index inválido");
 		Node n = new Node(element);
 		if (count==0) add(element);

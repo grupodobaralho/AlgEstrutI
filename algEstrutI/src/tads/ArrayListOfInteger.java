@@ -33,7 +33,7 @@ public class ArrayListOfInteger {
 	}
 	
 	//Adiciona elemento no index informado
-	public void add(int index, Integer element){
+	public void addByIndex(int index, Integer element){
 		if(index<0 || index>=count)
 			throw new IndexOutOfBoundsException("Invalid Index");
 		if(count==data.length)
@@ -147,10 +147,19 @@ public class ArrayListOfInteger {
 	}
 	
 	public boolean isEmpty(){
-		if(count==0)return true;
-		else return false;
+		return count==0;
 	}
-	
+
+	//toString
+	@Override
+	public String toString() {
+		String aux = "";
+		for(int i=0; i<count; i++) {
+			aux += (data[i] + "\n");
+		}
+		return aux;
+	}
+
 }
 	
 		

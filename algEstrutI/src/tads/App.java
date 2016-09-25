@@ -23,7 +23,7 @@ public class App {
 		listaEncadeada.add(4,18);
 		*/
 		
-		listaEncadeada.addByIndex(27,0);
+		listaEncadeada.addByIndex(0,27);
 		listaEncadeada.remove(6);
 		listaEncadeada.remove(99);
 		listaEncadeada.remove(8);
@@ -34,8 +34,8 @@ public class App {
 		
 		
 		listaEncadeada.add(78);
-		listaEncadeada.addByIndex(24,2);
-		listaEncadeada.addByIndex(88,0);
+		listaEncadeada.addByIndex(2,24);
+		listaEncadeada.addByIndex(0,88);
 		
 		System.out.println(listaEncadeada);
 		System.out.println("Fim da impressão" + prints + "\n\n");
