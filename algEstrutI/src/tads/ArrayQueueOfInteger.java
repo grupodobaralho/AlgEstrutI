@@ -16,7 +16,7 @@ public class ArrayQueueOfInteger {
 	}
 	
 	//duplica o tamanho do Vetor
-	public void aumentaData(){
+	private void aumentaData(){
 		Integer[] nData = new Integer[data.length*2];
 		for(int i=0; i<data.length; i++){
 			nData[i] = data[i];			
@@ -28,7 +28,8 @@ public class ArrayQueueOfInteger {
 	public void enqueue(Integer element){
 		if(count==data.length)
 			aumentaData();
-		data[count]=element;			
+		data[count]=element;
+		count++;
 	}
 	
 	public Integer dequeue(){
@@ -38,6 +39,7 @@ public class ArrayQueueOfInteger {
 		for(int i=0; i<count-1; i++){
 			data[i]=data[i+1];			
 		}
+		count--;
 		return aux;
 	}
 	
@@ -60,5 +62,14 @@ public class ArrayQueueOfInteger {
 		else return data[0];
 			
 	}
-		
+	
+	//toString
+	@Override
+	public String toString() {
+		String aux = "";
+		for(int i=0; i<count; i++) {
+			aux += (data[i] + "\n");
+		}
+		return aux;
+	}	
 }

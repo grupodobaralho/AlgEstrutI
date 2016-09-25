@@ -1,11 +1,11 @@
 package ex07;
 
-import tads.ArrayStackOfInteger;
+import tads.LinkedStackOfInteger;
 
-public class App_ex07 {
+public class App_ex07_LinkedStack {
 
 	public static void main(String[] args) {
-		ArrayStackOfInteger pilha = new ArrayStackOfInteger(1);
+		LinkedStackOfInteger pilha = new LinkedStackOfInteger();
 		
 		System.out.println(pilha);
 		pilha.push(5);

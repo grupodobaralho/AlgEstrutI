@@ -16,7 +16,7 @@ public class ArrayListOfInteger {
 	}
 	
 	//duplica o tamanho do Vetor
-	public void aumentaData(){
+	private void aumentaData(){
 		Integer[] nData = new Integer[data.length*2];
 		for(int i=0; i<data.length; i++){
 			nData[i] = data[i];			
@@ -161,10 +161,3 @@ public class ArrayListOfInteger {
 	}
 
 }
-	
-		
-		
-	
-	
-	
-

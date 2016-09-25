@@ -2,13 +2,13 @@ package tads;
 
 public class LinkedStackOfInteger {
 	
-	private Node head;
-	private Node tail;
+	private Node top;
 	private int count;	
 	
 	private class Node{
-		Integer element;
-		Node next;
+		public Integer element;
+		public Node next;
+		
 		public Node(Integer element){
 			this.element = element;
 			this.next = null;
@@ -16,28 +16,25 @@ public class LinkedStackOfInteger {
 	}
 	
 	public LinkedStackOfInteger(){
-		head = null;
-		tail = null;
+		top = null;
 		count = 0;
 	}
 	
 	public LinkedStackOfInteger(Integer element){
-		this.head = new Node(element);
-		this.tail = this.head;
-		this.count = 0;
+		this.top = new Node(element);
+		this.count = 1;
 	}
 	
 	public void push(Integer element){
 		Node n = new Node(element);
 		if(count==0){
-			head = n;
-			tail=head;
+			top = n;
 			count++;
 		}
 		else{		
-			Node aux = tail;
-			tail=n;
-			aux.next = tail;
+			Node aux = top;
+			top = n;
+			top.next = aux;
 			count++;
 		}
 	}
@@ -45,20 +42,16 @@ public class LinkedStackOfInteger {
 	public Integer pop(){
 		if(count==0)
 			throw new IndexOutOfBoundsException("Cannot pop, stack is empty.");
-		Integer aux = tail.element;
-		if(count==1){			
-			head = null;
-			tail = null;
-			count = 0;
-			return aux;			 
-		}		
-		Node n = head;
-		for(int i=1; i<count-1; i++){
-			n = n.next;		
-		}
-		tail=n;
+		Integer aux = top.element;
+		top = top.next;
 		count--;
-		return aux;		
+		return aux;
+	}
+	
+	public Integer top(){
+		if(count==0)
+			throw new IndexOutOfBoundsException("There's no top, stack is empty.");
+		return top.element;
 	}
 	
 	public int size(){
@@ -70,22 +63,15 @@ public class LinkedStackOfInteger {
 	}
 	
 	public void clear(){
-		head = null;
-		tail = null;
+		top = null;
 		count = 0;
 	}
-	
-	public Integer top(){
-		if(count==0)
-			throw new IndexOutOfBoundsException("There's no top, for stack is empty.");
-		return tail.element;
-	}
-	
+		
 	//toString
 	@Override
 	public String toString() {
 		String aux = "";
-		Node n = head;
+		Node n = top;
 		for(int i=0; i<count; i++) {
 			aux += (n.element + "\n");
 			n = n.next;

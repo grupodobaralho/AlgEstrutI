@@ -2,7 +2,7 @@ package ex08;
 
 import tads.LinkedQueueOfInteger;
 
-public class App_ex08 {
+public class App_ex08_LinkedQueue {
 
 	public static void main(String[] args) {
 		LinkedQueueOfInteger fila = new LinkedQueueOfInteger();

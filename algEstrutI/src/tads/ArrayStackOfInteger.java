@@ -2,17 +2,20 @@ package tads;
 
 public class ArrayStackOfInteger {
 	private Integer data[];
-	private int top;
 	private int count=0;
+	
+	public ArrayStackOfInteger(){
+		data = new Integer[10];
+	}
 	
 	public ArrayStackOfInteger(int size){
 		data = new Integer[size];
 	}
 	
 	//duplica o tamanho da lista quando estiver cheia
-	public void aumentaData(){
+	private void aumentaData(){
 		Integer aux[]= new Integer[data.length*2]; 
-		for(Integer i : data){
+		for(int i=0; i<data.length; i++){
 			aux[i] = data[i];
 		}
 		data = aux;
@@ -28,9 +31,10 @@ public class ArrayStackOfInteger {
 	}
 	
 	//remove e retorna o elemento do topo da pilha, e dá erro se a pilha estiver vazia
-	public void pop(){
+	public int pop(){
 		if(count==0) throw new IndexOutOfBoundsException("Pilha vazia. Na próxima vez, compre Duracell!");
 		count--;
+		return data[count];
 	}
 	
 	//retorna, mas não remove, o elemento do topo da pilha, e dá erro se a pilha estiver vazia
@@ -56,9 +60,9 @@ public class ArrayStackOfInteger {
 	
 	@Override
 	public String toString(){
-		String aux ="";
-		for(Integer i : data){
-			aux = aux + data[i] + "\n";
+		String aux = "";
+		for(int i=0; i<count; i++){
+			aux = aux + data[count-1-i] + "\n";
 		}
 		return aux;
 	}
