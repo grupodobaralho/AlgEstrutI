@@ -62,6 +62,7 @@ public class LinkedQueueOfInteger {
 	}
 	
 	//toString
+	@Override
 	public String toString() {
 		String aux = "";
 		Node n = head;
