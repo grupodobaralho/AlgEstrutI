@@ -81,11 +81,11 @@ public class LinkedListOfSignInt {
 		return soNegativos;
 	}
 	
-	//apenas para testes na classe App
 	public int size() {
 		return count;
 	}
 	
+	//apenas para testes na classe App
 	public Node getNode(int index) {
 		if(index<0 || index >=count)
 			throw new IndexOutOfBoundsException("Invalid Index");			

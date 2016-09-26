@@ -26,7 +26,7 @@ public class App_ex06 {
 		listaComSinal.add(-10);
 		listaComSinal.add(9);
 		
-		System.out.println("soNegativos\n" + listaComSinal.soNegativos());
+		System.out.println("\nsoNegativos\n" + listaComSinal.soNegativos());
 		
 		System.out.println("\nsoPositivos\n" + listaComSinal.soPositivos());
 		
