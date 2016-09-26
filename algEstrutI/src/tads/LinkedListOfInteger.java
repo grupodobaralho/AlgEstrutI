@@ -158,7 +158,9 @@ public class LinkedListOfInteger {
 	//Retorna true se a lista contém o elemento
 
 	public boolean contains(Integer e){		
-		if(tail.element==e) return true; //verificar tail.element antes de começar para otimizar.
+		//if(tail.element==e) return true; //verificar tail.element antes de começar para otimizar.
+		//Campo de código comentado porque irá gerar um exception se o tail não
+		//tiver sido inicializado (Israel)
 		Node n = head;
 		for(int i=0; i<count; i++){
 			if(n.element==e)				
