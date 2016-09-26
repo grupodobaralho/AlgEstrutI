@@ -12,7 +12,7 @@ import java.util.Random;
 //ISRAEL:
 public class App_ex01 {	
 	
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		Integer[] data = new Integer[8];
 		int count = 0;	
 		

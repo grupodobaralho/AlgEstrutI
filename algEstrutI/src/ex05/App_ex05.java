@@ -1,7 +1,9 @@
 package ex05;
 
-/*O SetTAD modela um conjunto, que é uma estrutura que armazena uma coleção de elementos que não aceita elementos repetidos. Os métodos do TAD conjunto para números inteiros são apresentados a seguir. Escreva uma implementação para a classe Set que utilize estruturas encadeadas.
-class Set
+/*O SetTAD modela um conjunto, que é uma estrutura que armazena uma coleção de elementos que não aceita elementos repetidos.
+ *Os métodos do TAD conjunto para números inteiros são apresentados a seguir.
+ *Escreva uma implementação para a classe Set que utilize estruturas encadeadas.
+ *class Set
 	//Retorna false se v ja pertence ao conjunto
 	boolean insere(Integer valor)
 	// Retorna true se v pertence ao conjunto
