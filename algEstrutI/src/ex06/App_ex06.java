@@ -3,7 +3,7 @@ package ex06;
 public class App_ex06 {
 
 	public static void main(String[] args) {
-		LinkedListOfSignInt listaComSinal = new LinkedListOfSignInt();
+		ex6Dudu listaComSinal = new ex6Dudu();
 		
 		listaComSinal.add(-1);
 		listaComSinal.add(0);
@@ -26,11 +26,12 @@ public class App_ex06 {
 		listaComSinal.add(-10);
 		listaComSinal.add(9);
 		
-		System.out.println("\nsoNegativos\n" + listaComSinal.soNegativos());
+		System.out.println("\nsoNegativos\n" + listaComSinal.onlyNegatives());
 		
-		System.out.println("\nsoPositivos\n" + listaComSinal.soPositivos());
+		System.out.println("\nsoPositivos\n" + listaComSinal.onlyPositives());
 		
-		System.out.println("listaComSinal.size(): " + listaComSinal.size());
+		System.out.println("listaComSinal.size(): " + listaComSinal.size());		
+		
 
 		//Imprime toda a lista até encontrar uma referência nula
 		/*for(int i =0; i<listaComSinal.size(); i++) {

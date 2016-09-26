@@ -10,6 +10,13 @@ public class App_ex02 {
 
 	public static void main(String[] args) {	
 		
+		
+		
+		
+		
+		
+		
+		/*
 		Integer[] data = new Integer[10];
 		int count = 0;	
 		
@@ -67,6 +74,8 @@ public class App_ex02 {
 		for(int i=0; i<data.length; i++){
 			System.out.println(data[i]);
 		}	
-		return element;		
+		return element;
+		*/
+		
 	}
 }
