@@ -3,7 +3,7 @@ package ex06;
 public class App_ex06 {
 
 	public static void main(String[] args) {
-		ex6Dudu listaComSinal = new ex6Dudu();
+		LinkedListOfSignInt listaComSinal = new LinkedListOfSignInt();
 		
 		listaComSinal.add(-1);
 		listaComSinal.add(0);
@@ -26,9 +26,9 @@ public class App_ex06 {
 		listaComSinal.add(-10);
 		listaComSinal.add(9);
 		
-		System.out.println("\nsoNegativos\n" + listaComSinal.onlyNegatives());
+		System.out.println("\nsoNegativos\n" + listaComSinal.soNegativos());
 		
-		System.out.println("\nsoPositivos\n" + listaComSinal.onlyPositives());
+		System.out.println("\nsoPositivos\n" + listaComSinal.soPositivos());
 		
 		System.out.println("listaComSinal.size(): " + listaComSinal.size());		
 		
