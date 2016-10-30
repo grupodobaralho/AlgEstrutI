@@ -11,7 +11,7 @@ public class LinkedListOfInteger {
 		
 		public Node(Integer element){
 			this.element = element;
-			next = null;			
+			next = null;
 		}
 	}
 	
