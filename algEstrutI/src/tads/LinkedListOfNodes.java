@@ -9,9 +9,8 @@ public class LinkedListOfNodes {
 		public Integer element;
 		public Node next;
 		
-		public Node(Integer element){
-			this.element = element;
-			next = null;			
+		@SuppressWarnings("unused")
+		public Node(){					
 		}
 	}
 	
