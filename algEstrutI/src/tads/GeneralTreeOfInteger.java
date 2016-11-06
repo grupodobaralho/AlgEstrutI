@@ -3,12 +3,14 @@ package tads;
 public class GeneralTreeOfInteger {	
 	
 	
-	class Node{
+	public static final class Node{
+		
 		public Node father;
 		public Integer element;
 		public LinkedListOfNodes subtrees;
 		
 		public Node(Integer element){
+			
 			this.father = null;
 			this.element = element;
 			subtrees = new LinkedListOfNodes();
@@ -22,10 +24,12 @@ public class GeneralTreeOfInteger {
 		public boolean removeSubtree(Node n){
 			n.father = null;
 			return subtrees.remove(n);
-		}	
-		
-		public String toString(){
-			
 		}
+
+		@Override
+		public String toString() {
+			return "Node [father=" + father + ", element=" + element + ", subtrees=" + subtrees + "]";
+		}			
+		
 	}
 }

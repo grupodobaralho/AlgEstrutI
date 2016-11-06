@@ -1,41 +1,51 @@
 package tads;
 
+import tads.GeneralTreeOfInteger.Node;
+
 public class LinkedListOfNodes {
-	private Node head;
-	private Node tail;
+	
+	private Nodo head;
+	private Nodo tail;
 	private int count;
 	
-	private class Node {
-		public Integer element;
-		public Node next;
+	
+	//==============================================Node
+	private class Nodo {
+		public Node element;
+		public Nodo next;				
 		
-		@SuppressWarnings("unused")
-		public Node(){					
+		public Nodo(Node element){
+			this.element = element;
+			next = null;
 		}
-	}
+	}			
+	//===============================================End Node	
+	
+	
 	
 	public LinkedListOfNodes() {
 		count = 0;
 	}
 	
 	public LinkedListOfNodes(Node element){
-		this.head = element;
+		this.head = new Nodo(element);
 		this.tail = this.head;
 		count++;
 	}
 	
 	//Adiciona elemento no final
 	public void add(Node element){
-		Node n = element;
+		Nodo n = new Nodo(element);
 		if(count==0)head = n;
 		else tail.next = n;
 		tail = n;
-		count++;		
+		count++;
 	}
 	
+	//Remove um elemento do vetor e reposiciona os demais retornando true se o valor foi encontrado
 	public boolean remove(Node element){
 		if(count==0) return false;
-		if(head==element){
+		if(head.element==element){
 			head = head.next;	
 			if(count==1){
 				tail=null;
@@ -43,16 +53,15 @@ public class LinkedListOfNodes {
 			count--;
 			return true;			
 		}
-		Node ant = head;
-		Node n = head.next;
+		Nodo ant = head;
+		Nodo n = head.next;
 		for(int i=1; i<count; i++){
-			if(n==element){
+			if(n.element==element){
 				ant.next=n.next;
 				count--;
 				if(n==tail)
 					tail=ant;
-				return true;
-			}
+					return true;				}
 			else{
 				ant = ant.next;
 				n = n.next;
@@ -61,40 +70,26 @@ public class LinkedListOfNodes {
 		return false;
 	}
 	
-	//Retorna o valor na posição do index informado
+		//Retorna o valor na posição do index informado
 	public Node get(int index){
 		if(index<0 || index >=count)
 			throw new IndexOutOfBoundsException("Invalid Index");			
 		if(index==count-1)
-			return tail;
-		Node aux = head;
+			return tail.element;
+		Nodo aux = head;
 		for(int i=0; i<index; i++){		
 			aux = aux.next;
 		}
-		return aux;
-	}	
-		//Remove um elemento do vetor e reposiciona os demais retornando true se o valor foi encontrado
-	//Remove um elemento do vetor pelo índice e retorna o elemento que estava lá
-
-	//Retorna o número de elementos armazenados na lista
+		return aux.element;
+	}			
+	
 	public int size(){
 		return count;
 	}
-		//Retorna true se a lista contém o elemento
 
-	//retorna a posição onde o elemento está na lista
-	//remove todos os elementos da lista
-
-	//toString
 	@Override
 	public String toString() {
-		String aux = "";
-		Node n = head;
-		for(int i=0; i<count; i++) {
-			aux += (n.element.toString() + "\n");
-			n = n.next;
-		}
-		return aux;
-	}
+		return "LinkedListOfNodes [head=" + head + ", tail=" + tail + ", count=" + count + "]";
+	}	
 
 }
