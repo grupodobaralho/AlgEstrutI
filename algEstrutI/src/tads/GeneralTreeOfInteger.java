@@ -81,7 +81,7 @@ public class GeneralTreeOfInteger {
 	
 	
 	//insere o elemento e como filho de f
-	boolean add(Integer e, Integer f){
+	public boolean add(Integer e, Integer f){
 		try{
 			searchNodeRef(f).addSubtree(new Node(e));
 			count++;
@@ -92,7 +92,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//retorna o elemento armazenado na raiz
-	Integer getRoot(){
+	public Integer getRoot(){
 		if(root != null) {
 			return root.element;
 		}
@@ -100,7 +100,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//cria a raíz, se já existir altera o elemento armazenado na raiz
-	void setRoot(Integer e){
+	public void setRoot(Integer e){
 		if(root == null) {
 			root = new Node(e);
 			count++;
@@ -110,7 +110,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//retorna o pai do elemento e
-	Integer getParent(Integer e){
+	public Integer getParent(Integer e){
 		try{
 			return searchNodeRef(e).father.element;
 		} catch (Exception exc) {
@@ -119,7 +119,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//remove o elemento e e seus filhos
-	boolean removeBranch(Integer e){
+	public boolean removeBranch(Integer e){
 		try{
 			Node n = searchNodeRef(e);
 			ArrayList<Integer> lista = new ArrayList<>();
@@ -132,7 +132,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//retorna true se a árvore contém o elemento
-	boolean contains(Integer e){
+	public boolean contains(Integer e){
 		try{
 			return searchNodeRef(e) != null;
 		} catch (Exception exc) {
@@ -141,7 +141,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//retorna true se o elemento está armazenado em um nodo interno
-	boolean isInternal(Integer e){
+	public boolean isInternal(Integer e){
 		try{
 			return searchNodeRef(e).getSubtreeSize() > 0;
 		} catch (Exception exc) {
@@ -150,7 +150,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//retorna true se o elemento está armazenado em um nodo externo
-	boolean isExternal(Integer e){
+	public boolean isExternal(Integer e){
 		try{
 			return searchNodeRef(e).getSubtreeSize() == 0;
 		} catch (Exception exc) {
@@ -159,7 +159,7 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//retorna true se o elemento e está armazenado na raiz
-	boolean isRoot(Integer e){
+	public boolean isRoot(Integer e){
 		try{
 			return root.element.equals(e);
 		} catch (Exception exc) {
@@ -168,24 +168,24 @@ public class GeneralTreeOfInteger {
 	}
 	
 	//retorna true se a árvore está vazia
-	boolean isEmpty(){
+	public boolean isEmpty(){
 		return count == 0;
 	}
 	
 	//retorna o número de elementos armazenados na árvore
-	int size(){
+	public int size(){
 		return count;
 	}
 	
 	//remove todos os elementos da árvore
-	void clear(){
+	public void clear(){
 		root = null;
 		count = 0;
 	}
 	
 	
 	//retorna uma lista com todos os elementos da árvore na ordem pré-fixada
-	ArrayList<Integer> positionsPre(){
+	public ArrayList<Integer> positionsPre(){
 		ArrayList<Integer> lista = new ArrayList<>();
 		positionsPreAux(root, lista);
 		return lista;
@@ -202,7 +202,7 @@ public class GeneralTreeOfInteger {
 	
 	
 	//retorna uma lista com todos os elementos da árvore na ordem pós-fixada
-	ArrayList<Integer> positionsPos(){
+	public ArrayList<Integer> positionsPos(){
 		ArrayList<Integer> lista = new ArrayList<>();
 		positionsPosAux(root, lista);
 		return lista;
@@ -218,7 +218,7 @@ public class GeneralTreeOfInteger {
 	}
 		
 	//retorna uma lista com todos os elementos da árvore com um caminhamento em largura
-	ArrayList<Integer> positionsWidth(){
+	public ArrayList<Integer> positionsWidth(){
 		ArrayList<Integer> lista = new ArrayList<>();
 		if(root != null){
 			Queue<Node> fila = new LinkedList<>();
@@ -233,6 +233,20 @@ public class GeneralTreeOfInteger {
 			}
 		}
 		return lista;
+	}
+	
+	public ArrayList<Integer> ancestors(Integer e){
+		ArrayList<Integer> lista = new ArrayList<>();
+		try{
+			Node n = searchNodeRef(e);
+			while(n != null){
+				lista.add(n.element);
+				n = n.father;
+			}
+		} catch (Exception exc) {
+			//System.out.println("Mensagem: " + exc);
+		}
+		return lista;		
 	}
 }
 

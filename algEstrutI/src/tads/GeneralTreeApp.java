@@ -36,6 +36,7 @@ public class GeneralTreeApp {
 		System.out.println("\nCaminhamento Pré-Fixado:\n" + myTree.positionsPre());
 		System.out.println("\nCaminhamento Pós-Fixado:\n" + myTree.positionsPos());
 		System.out.println("\nCaminhamento em Largura:\n" + myTree.positionsWidth());
+		System.out.println("\nAncestrais do 13\n" + myTree.ancestors(13));
 		
 		//remove o branch 7
 		myTree.removeBranch(7);
@@ -43,6 +44,7 @@ public class GeneralTreeApp {
 		System.out.println("\nCaminhamento Pré-Fixado:\n" + myTree.positionsPre());
 		System.out.println("\nCaminhamento Pós-Fixado:\n" + myTree.positionsPos());
 		System.out.println("\nCaminhamento em Largura:\n" + myTree.positionsWidth());
+		System.out.println("\nAncestrais do 13\n" + myTree.ancestors(13));
 	}
 
 }
