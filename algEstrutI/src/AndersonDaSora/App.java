@@ -18,7 +18,9 @@ public class App {
         //a.remove(4);
         //a.remove(2);
         //a.remove(6);
-        System.out.println("Altura: " + a.height());
-        System.out.println(a.positionsWidth().toString());
+       // System.out.println("Altura: " + a.height());
+       // System.out.println(a.positionsWidth().toString());
+        System.out.println(a.getRoot());
+        System.out.println("Qnt de Folhas: " + a.contaNumeroFolhas());
     }
 }

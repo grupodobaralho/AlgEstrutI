@@ -43,9 +43,9 @@ public class AnderssonTreeOfInteger {
     }
 
     public int getRoot() {
-        if (count == 0) {
-            throw new NullPointerException();
-        }
+     //   if (count == 0) {
+    //        throw new NullPointerException();
+     //   }
         return root.element;
     }
 
@@ -77,7 +77,7 @@ public class AnderssonTreeOfInteger {
     }
 
     public void add(Integer element) {
-        root = add(root, element);
+        root = add(root, element);        
     }
     private Node add(Node root, Integer element) {
         if (root == nil) {
@@ -91,6 +91,7 @@ public class AnderssonTreeOfInteger {
             root = skew(root);
             root = split(root);
         }
+        count++;
         return root;
     }
 
@@ -135,7 +136,7 @@ public class AnderssonTreeOfInteger {
                 root = split(root);
             }
         }
-
+        if(count>0) count--;
         return root;
     }
     
@@ -223,4 +224,39 @@ public class AnderssonTreeOfInteger {
         }
         return res;
     }    
+    
+    //método que retorna o número de folhas da árvore
+    public int contaNumeroFolhas()	{    	
+    	if (root == nil )
+            return 0;
+        else if (root.left==nil && root.right==nil)
+            return 0;
+        else
+            return contaNumeroFolhas(root);    	
+    }
+    //auxiliar
+    public int contaNumeroFolhas(Node n)	{
+    	if ( n.left == nil && n.right == nil ) {
+            return 1;
+        }
+        else {
+            int h=0;  
+            if(n.right!=nil && n.left!=nil)	
+            {
+            	int a = contaNumeroFolhas(n.right);
+            	int b = contaNumeroFolhas(n.left);
+            	return a + b;
+            }
+            else if(n.left!=nil && n.right==nil)
+            {
+            	return h + contaNumeroFolhas(n.left);
+            }
+            else if(n.right!=nil && n.left==nil)
+            {
+            	return h + contaNumeroFolhas(n.right);
+            }           
+            return h;            
+        }
+    	
+    }
 }
