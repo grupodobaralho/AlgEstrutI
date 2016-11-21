@@ -232,16 +232,16 @@ public class AnderssonTreeOfInteger {
         if(root.left==nil && root.right==nil)
             return 1;
         else
-            return contaNumeroFolhas(root);    	
+            return contaNumeroFolhasAux(root);    	
     }
     //auxiliar
-    public int contaNumeroFolhas(Node n) {
+    private int contaNumeroFolhasAux(Node n) {
     	if(n==nil)
     		return 0;
     	if(n.left==nil && n.right==nil) 
     		return 1;        
         else 
-        	return contaNumeroFolhas(n.left) + 
-        		   contaNumeroFolhas(n.right);    	
+        	return contaNumeroFolhasAux(n.left) + 
+        		   contaNumeroFolhasAux(n.right);    	
     }
 }
