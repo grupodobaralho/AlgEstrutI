@@ -77,7 +77,8 @@ public class AnderssonTreeOfInteger {
     }
 
     public void add(Integer element) {
-        root = add(root, element);        
+        root = add(root, element); 
+        count++;
     }
     private Node add(Node root, Integer element) {
         if (root == nil) {
@@ -90,8 +91,7 @@ public class AnderssonTreeOfInteger {
             }
             root = skew(root);
             root = split(root);
-        }
-        count++;
+        }        
         return root;
     }
 
@@ -244,4 +244,25 @@ public class AnderssonTreeOfInteger {
         	return contaNumeroFolhasAux(n.left) + 
         		   contaNumeroFolhasAux(n.right);    	
     }
+    
+  //método que retorna o número de folhas da árvore
+    public double calculaMedia() {    	
+    	if(root==nil)
+            return 0;
+        if(root.left==nil && root.right==nil)
+            return root.element;
+        else
+            return (double)calculaSoma(root) / count;    	
+    }
+	//auxiliar
+    private int calculaSoma(Node n) {
+    	if(n==nil)
+    		return 0;    	
+    	return n.element + calculaSoma(n.right) + calculaSoma(n.left);
+    } 
+    
+    public int getCount() {
+		return count;
+	}    
+    
 }

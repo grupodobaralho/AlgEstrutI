@@ -11,6 +11,7 @@ public class App {
         a.add(4);
         a.add(5);
         a.add(6);
+        a.add(7);
         //a.remove(0);
         //a.remove(3);
         //a.remove(1);
@@ -22,5 +23,7 @@ public class App {
         System.out.println(a.positionsWidth().toString());
         System.out.println("Raiz: " + a.getRoot());
         System.out.println("Qnt de Folhas: " + a.contaNumeroFolhas());
+        System.out.println(a.getCount());
+        System.out.println("Média dos valores:" + a.calculaMedia());
     }
 }
