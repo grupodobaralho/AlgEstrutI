@@ -11,16 +11,16 @@ public class App {
         a.add(4);
         a.add(5);
         a.add(6);
-//        a.remove(0);
-//        a.remove(3);
-//        a.remove(1);
-//        a.remove(5);
+        //a.remove(0);
+        //a.remove(3);
+        //a.remove(1);
+        //a.remove(5);
         //a.remove(4);
         //a.remove(2);
         //a.remove(6);
-       // System.out.println("Altura: " + a.height());
-       // System.out.println(a.positionsWidth().toString());
-        System.out.println(a.getRoot());
+        System.out.println("Altura: " + a.height());
+        System.out.println(a.positionsWidth().toString());
+        System.out.println("Raiz: " + a.getRoot());
         System.out.println("Qnt de Folhas: " + a.contaNumeroFolhas());
     }
 }

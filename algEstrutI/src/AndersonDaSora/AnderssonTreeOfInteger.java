@@ -226,37 +226,22 @@ public class AnderssonTreeOfInteger {
     }    
     
     //método que retorna o número de folhas da árvore
-    public int contaNumeroFolhas()	{    	
-    	if (root == nil )
+    public int contaNumeroFolhas() {    	
+    	if(root==nil)
             return 0;
-        else if (root.left==nil && root.right==nil)
-            return 0;
+        if(root.left==nil && root.right==nil)
+            return 1;
         else
             return contaNumeroFolhas(root);    	
     }
     //auxiliar
-    public int contaNumeroFolhas(Node n)	{
-    	if ( n.left == nil && n.right == nil ) {
-            return 1;
-        }
-        else {
-            int h=0;  
-            if(n.right!=nil && n.left!=nil)	
-            {
-            	int a = contaNumeroFolhas(n.right);
-            	int b = contaNumeroFolhas(n.left);
-            	return a + b;
-            }
-            else if(n.left!=nil && n.right==nil)
-            {
-            	return h + contaNumeroFolhas(n.left);
-            }
-            else if(n.right!=nil && n.left==nil)
-            {
-            	return h + contaNumeroFolhas(n.right);
-            }           
-            return h;            
-        }
-    	
+    public int contaNumeroFolhas(Node n) {
+    	if(n==nil)
+    		return 0;
+    	if(n.left==nil && n.right==nil) 
+    		return 1;        
+        else 
+        	return contaNumeroFolhas(n.left) + 
+        		   contaNumeroFolhas(n.right);    	
     }
 }
