@@ -20,10 +20,18 @@ public class App {
         //a.remove(2);
         //a.remove(6);
         System.out.println("Altura: " + a.height());
-        System.out.println(a.positionsWidth().toString());
+        System.out.println(a.positionsPos().toString());
         System.out.println("Raiz: " + a.getRoot());
         System.out.println("Qnt de Folhas: " + a.contaNumeroFolhas());
-        System.out.println(a.getCount());
+        System.out.println("Count: "+ a.getCount());
         System.out.println("Média dos valores:" + a.calculaMedia());
+        
+        AnderssonTreeOfInteger b = a.clone();        
+        System.out.println("Arvore b: "+ b.positionsPos().toString()+"\n Final");
+        System.out.println("Altura: " + b.height());        
+        System.out.println("Raiz: " + b.getRoot());
+        System.out.println("Qnt de Folhas: " + b.contaNumeroFolhas());
+        System.out.println("Count: "+ b.getCount());
+        System.out.println("Média dos valores:" + b.calculaMedia());
     }
 }

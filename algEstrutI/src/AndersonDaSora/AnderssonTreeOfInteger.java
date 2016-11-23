@@ -264,5 +264,19 @@ public class AnderssonTreeOfInteger {
     public int getCount() {
 		return count;
 	}    
+   
     
+    //Só funciona para ABP e não para esssa árvore, mas ta aki de exemplo
+    public AnderssonTreeOfInteger clone(){
+    	AnderssonTreeOfInteger nova = new AnderssonTreeOfInteger();    	
+    	cloneAux(root, nova);
+    	return nova;   	   	
+    }    
+    private void cloneAux(Node n, AnderssonTreeOfInteger a){
+    	if(n!=null){    		
+    		a.add(n.element);    		
+    		cloneAux(n.left, a);
+    		cloneAux(n.right, a);
+    	}
+    }    
 }
